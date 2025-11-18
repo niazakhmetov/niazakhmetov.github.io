@@ -21,8 +21,13 @@ header, section, footer {
     padding: 60px 20px;
     max-width: 1100px;
     margin: 0 auto;
-    text-align: center;
+    /* text-align: center; */ /* Убрали общее центрирование для всех секций */
 }
+
+section, footer {
+    text-align: center; /* Центрируем контент в обычных секциях и футере */
+}
+
 
 h1, h2, h3 {
     color: #172c47; /* Темный корпоративный цвет */
@@ -41,21 +46,28 @@ nav {
 
 .nav-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end; /* Выравниваем элементы навигации вправо */
     align-items: center;
     max-width: 1100px;
     margin: 0 auto;
     padding: 15px 20px;
 }
 
+/* Убрали .logo, т.к. его больше нет в HTML */
+/*
 .logo {
     font-size: 1.5em;
     font-weight: bold;
-    color: #172c47; /* Темный корпоративный цвет */
+    color: #172c47; 
     text-decoration: none;
 }
+*/
 
-.nav-links a {
+.nav-links-right { /* Новый класс для контейнера ссылок */
+    display: flex;
+}
+
+.nav-links-right a {
     color: #343a40;
     text-decoration: none;
     margin-left: 25px;
@@ -63,7 +75,7 @@ nav {
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links-right a:hover {
     color: #172c47; /* Акцент при наведении */
 }
 
@@ -73,13 +85,15 @@ header {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #172c47; /* Запасной темно-синий цвет */
+    background-color: #172c47; 
     color: white;
     padding: 120px 20px;
     position: relative;
+    display: flex; /* Используем flexbox для позиционирования контента */
+    align-items: center; /* Центрируем контент по вертикали */
+    text-align: left; /* Выравниваем текст по левому краю */
 }
 
-/* Наложение: Сделано более темным, чтобы белый текст читался на фоне любого фото */
 header::before {
     content: '';
     position: absolute;
@@ -87,17 +101,21 @@ header::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(23, 44, 71, 0.7); /* Наложение цвета #172c47 с прозрачностью 70% */
+    background-color: rgba(23, 44, 71, 0.7); 
     z-index: 0;
 }
 
-header > * {
+.header-content-wrapper { /* Обертка для контента, чтобы ограничить ширину */
     position: relative;
     z-index: 1;
+    max-width: 500px; /* Ограничиваем ширину текста */
+    margin-right: auto; /* Сдвигаем контент влево */
+    /* margin-left: 0; */ /* Явно указываем левый отступ */
+    padding-left: 20px; /* Добавляем небольшой отступ от края */
 }
 
 header h1 {
-    color: white; /* Заголовки в шапке всегда белые */
+    color: white; 
     font-size: 3em;
     margin-bottom: 10px;
 }
@@ -108,26 +126,26 @@ header h1 {
 }
 
 .summary {
-    max-width: 700px;
-    margin: 20px auto 30px;
+    max-width: 700px; /* Этот стиль может быть унаследован, но явно укажем */
+    margin: 20px 0 30px 0; /* Убираем auto для левого выравнивания */
 }
 
 .button {
     display: inline-flex;
     align-items: center;
     background: white;
-    color: #172c47; /* Кнопка в цвет акцента */
+    color: #172c47; 
     padding: 15px 35px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     font-size: 1.1em;
     transition: background-color 0.3s, color 0.3s;
-    border: 1px solid #172c47; /* Четкий корпоративный контур */
+    border: 1px solid #172c47; 
 }
 
 .button:hover {
-    background-color: #dee2e6; /* Легкий серый фон при наведении */
+    background-color: #dee2e6; 
 }
 
 header .button i {
@@ -166,7 +184,7 @@ header .button i {
 
 .skill-tag {
     background-color: #e9ecef;
-    color: #34495e; /* Более строгий цвет текста для тегов */
+    color: #34495e; 
     padding: 8px 15px;
     border-radius: 20px;
     font-size: 0.9em;
@@ -175,7 +193,7 @@ header .button i {
 
 /* --- 5. Секция Опыт работы (Таймлайн) --- */
 #experience {
-    background-color: #f8f9fa; /* Используем светлый фон body для однородности */
+    background-color: #f8f9fa; 
 }
 
 .timeline {
@@ -190,7 +208,7 @@ header .button i {
     content: '';
     position: absolute;
     width: 2px;
-    background-color: #34495e; /* Более темная линия таймлайна */
+    background-color: #34495e; 
     top: 0;
     bottom: 0;
     left: 50%;
@@ -219,7 +237,7 @@ header .button i {
     width: 15px;
     height: 15px;
     right: -7.5px;
-    background-color: #172c47; /* Кружки в корпоративном цвете */
+    background-color: #172c47; 
     border: 3px solid white;
     top: 25px;
     border-radius: 50%;
@@ -234,7 +252,7 @@ header .button i {
     padding: 20px;
     background-color: white;
     border-radius: 6px;
-    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Менее агрессивная тень */
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); 
 }
 
 .timeline-date {
@@ -253,7 +271,7 @@ header .button i {
 
 .company {
     font-style: italic;
-    color: #172c47; /* Название компании в корпоративном цвете */
+    color: #172c47; 
     margin-bottom: 10px;
 }
 
@@ -279,36 +297,48 @@ header .button i {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    gap: 20px; /* Увеличил зазор между иконками */
     margin-top: 20px;
 }
 
-.cert-link, .download-link {
+.cert-item { /* Обновленный класс для иконок сертификатов */
     display: flex;
-    align-items: center;
-    background-color: #ffffff;
-    color: #172c47;
-    padding: 10px 15px;
-    border-radius: 5px;
+    flex-direction: column; /* Элементы будут выстраиваться в колонку */
+    align-items: center; /* Центрируем содержимое */
+    justify-content: center;
     text-decoration: none;
-    font-weight: 500;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    border: 1px solid #dee2e6; /* Тонкая рамка вместо синей */
+    color: #343a40; /* Цвет текста */
+    transition: transform 0.3s ease, color 0.3s;
+    width: 120px; /* Фиксированная ширина для каждой иконки */
+    text-align: center;
+    font-size: 0.9em;
 }
 
-.cert-link:hover, .download-link:hover {
-    background-color: #e9ecef; /* Очень легкий акцент при наведении */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.cert-item:hover {
+    color: #172c47; /* Изменение цвета при наведении */
+    transform: translateY(-5px); /* Легкий эффект поднятия */
 }
 
-.cert-link i, .download-link i {
-    margin-right: 8px;
-    font-size: 1.1em;
+.cert-icon {
+    font-size: 3em; /* Размер иконки */
+    color: #172c47; /* Цвет иконки */
+    margin-bottom: 8px; /* Отступ от текста */
+    transition: color 0.3s;
 }
+
+.cert-item:hover .cert-icon {
+    color: #34495e; /* Изменение цвета иконки при наведении */
+}
+
+.cert-label {
+    display: block; /* Чтобы текст переносился на новую строку, если длинный */
+    line-height: 1.2;
+}
+
 
 /* --- 7. Секция Контакты и Футер --- */
 #contact {
-    background-color: #f8f9fa; /* Светлый фон body */
+    background-color: #f8f9fa; 
 }
 
 .contact-links {
@@ -320,7 +350,7 @@ header .button i {
 }
 
 .contact-links a {
-    color: #172c47; /* Цвет акцента */
+    color: #172c47; 
     text-decoration: none;
     padding: 10px 15px;
     border: 1px solid #172c47;
@@ -341,7 +371,7 @@ header .button i {
 }
 
 footer {
-    background-color: #343a40; /* Темно-серый */
+    background-color: #343a40; 
     color: #adb5bd;
     padding: 25px;
     font-size: 0.85em;
@@ -352,6 +382,18 @@ footer {
    8. МОБИЛЬНЫЙ КОНТЕНТ (МЕДИА-ЗАПРОСЫ)
    ===================================== */
 @media screen and (max-width: 768px) {
+    /* Общие для мобильных */
+    header {
+        text-align: center; /* На мобильных центрируем текст шапки */
+        padding: 80px 20px; /* Немного уменьшим паддинг */
+    }
+
+    .header-content-wrapper {
+        max-width: 100%; /* Убираем ограничение ширины */
+        margin: 0 auto; /* Центрируем обертку */
+        padding-left: 0;
+    }
+    
     h1 {
         font-size: 2.5em; 
     }
@@ -360,16 +402,22 @@ footer {
         flex-direction: column;
         text-align: center;
         padding: 10px;
+        justify-content: center; /* Центрируем ссылки навигации */
     }
 
-    .nav-links a {
+    .nav-links-right { /* Используем новый класс */
+        margin-top: 10px;
+        justify-content: center; /* Центрируем ссылки */
+    }
+
+    .nav-links-right a {
         margin: 5px 10px;
         display: inline-block; 
     }
     
     .timeline::after {
         left: 31px; 
-        background-color: #34495e; /* Сохраняем темный цвет */
+        background-color: #34495e; 
     }
 
     .timeline-item {
@@ -405,16 +453,21 @@ footer {
     }
     
     .skills-grid, .certs-grid {
-        justify-content: flex-start; 
+        justify-content: center; /* Центрируем на мобильных */
     }
     
     .certs-grid {
-        flex-direction: column;
+        flex-direction: row; /* На мобильных можно оставить иконки в ряд */
+        gap: 15px; /* Уменьшим зазор */
+    }
+
+    .cert-item {
+        width: 100px; /* Уменьшим ширину иконок */
+        font-size: 0.8em;
     }
     
-    .cert-link, .download-link {
-        width: 90%;
-        margin: 0 auto;
+    .cert-icon {
+        font-size: 2.5em; /* Уменьшим размер иконки */
     }
     
     .contact-links {
