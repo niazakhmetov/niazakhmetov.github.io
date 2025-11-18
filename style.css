@@ -1,10 +1,19 @@
+/* --- Новая Корпоративная Цветовая Палитра --- */
+/*
+   Основной акцент (Accent): #172c47 (Темно-синий / Индиго)
+   Вторичный акцент: #34495e (Антрацит)
+   Светлый фон: #ffffff (Белый)
+   Очень светлый фон секций: #f8f9fa (Почти белый)
+   Цвет текста: #343a40
+*/
+
 /* --- 1. Общие стили и сброс --- */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa;
+    background-color: #f8f9fa; /* Светлый фон */
     color: #343a40;
 }
 
@@ -16,7 +25,7 @@ header, section, footer {
 }
 
 h1, h2, h3 {
-    color: #007bff;
+    color: #172c47; /* Темный корпоративный цвет */
     font-weight: 600;
 }
 
@@ -42,7 +51,7 @@ nav {
 .logo {
     font-size: 1.5em;
     font-weight: bold;
-    color: #007bff;
+    color: #172c47; /* Темный корпоративный цвет */
     text-decoration: none;
 }
 
@@ -55,22 +64,22 @@ nav {
 }
 
 .nav-links a:hover {
-    color: #0056b3;
+    color: #172c47; /* Акцент при наведении */
 }
 
 /* --- 3. Секция Введение/Заголовок (Header) --- */
 header {
-    background-image: url('background.jpg'); /* Ваше фоновое изображение */
+    background-image: url('фото на фон.jpeg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-color: #007bff; /* Запасной цвет, если изображение не загрузится */
+    background-color: #172c47; /* Запасной темно-синий цвет */
     color: white;
     padding: 120px 20px;
-    position: relative; /* Для наложения затемнения */
+    position: relative;
 }
 
-/* Наложение для лучшей читаемости текста на фоне */
+/* Наложение: Сделано более темным, чтобы белый текст читался на фоне любого фото */
 header::before {
     content: '';
     position: absolute;
@@ -78,17 +87,17 @@ header::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Темное полупрозрачное наложение */
+    background-color: rgba(23, 44, 71, 0.7); /* Наложение цвета #172c47 с прозрачностью 70% */
     z-index: 0;
 }
 
-header > * { /* Все дочерние элементы header должны быть выше наложения */
+header > * {
     position: relative;
     z-index: 1;
 }
 
 header h1 {
-    color: white;
+    color: white; /* Заголовки в шапке всегда белые */
     font-size: 3em;
     margin-bottom: 10px;
 }
@@ -107,17 +116,18 @@ header h1 {
     display: inline-flex;
     align-items: center;
     background: white;
-    color: #007bff;
+    color: #172c47; /* Кнопка в цвет акцента */
     padding: 15px 35px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
     font-size: 1.1em;
     transition: background-color 0.3s, color 0.3s;
+    border: 1px solid #172c47; /* Четкий корпоративный контур */
 }
 
 .button:hover {
-    background-color: #e2e6ea;
+    background-color: #dee2e6; /* Легкий серый фон при наведении */
 }
 
 header .button i {
@@ -127,23 +137,23 @@ header .button i {
 /* --- 4. Секция Обо мне и Навыки --- */
 #about {
     background-color: white;
-    padding-top: 20px; /* Уменьшим отступ сверху, чтобы аватарка могла подняться */
+    padding-top: 20px;
 }
 
 .avatar-container {
-    margin-top: -80px; /* Поднимем контейнер с аватаркой выше */
+    margin-top: -80px; 
     margin-bottom: 30px;
     position: relative;
-    z-index: 2; /* Убедимся, что аватарка поверх всего */
+    z-index: 2; 
 }
 
 .avatar {
-    width: 160px; /* Размер аватарки */
+    width: 160px; 
     height: 160px;
-    border-radius: 50%; /* Круглая форма */
-    object-fit: cover; /* Обрезка изображения, чтобы заполнить круг */
-    border: 5px solid white; /* Белая рамка */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Тень */
+    border-radius: 50%; 
+    object-fit: cover; 
+    border: 5px solid white; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); 
 }
 
 .skills-grid {
@@ -156,7 +166,7 @@ header .button i {
 
 .skill-tag {
     background-color: #e9ecef;
-    color: #495057;
+    color: #34495e; /* Более строгий цвет текста для тегов */
     padding: 8px 15px;
     border-radius: 20px;
     font-size: 0.9em;
@@ -165,7 +175,7 @@ header .button i {
 
 /* --- 5. Секция Опыт работы (Таймлайн) --- */
 #experience {
-    background-color: #f1f6fc; /* Светло-голубой фон */
+    background-color: #f8f9fa; /* Используем светлый фон body для однородности */
 }
 
 .timeline {
@@ -180,7 +190,7 @@ header .button i {
     content: '';
     position: absolute;
     width: 2px;
-    background-color: #007bff;
+    background-color: #34495e; /* Более темная линия таймлайна */
     top: 0;
     bottom: 0;
     left: 50%;
@@ -209,7 +219,7 @@ header .button i {
     width: 15px;
     height: 15px;
     right: -7.5px;
-    background-color: #007bff;
+    background-color: #172c47; /* Кружки в корпоративном цвете */
     border: 3px solid white;
     top: 25px;
     border-radius: 50%;
@@ -224,7 +234,7 @@ header .button i {
     padding: 20px;
     background-color: white;
     border-radius: 6px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1); /* Менее агрессивная тень */
 }
 
 .timeline-date {
@@ -243,7 +253,7 @@ header .button i {
 
 .company {
     font-style: italic;
-    color: #007bff;
+    color: #172c47; /* Название компании в корпоративном цвете */
     margin-bottom: 10px;
 }
 
@@ -276,19 +286,19 @@ header .button i {
 .cert-link, .download-link {
     display: flex;
     align-items: center;
-    background-color: #f1f6fc;
-    color: #007bff;
+    background-color: #ffffff;
+    color: #172c47;
     padding: 10px 15px;
     border-radius: 5px;
     text-decoration: none;
     font-weight: 500;
     transition: background-color 0.3s, box-shadow 0.3s;
-    border: 1px solid #cce5ff;
+    border: 1px solid #dee2e6; /* Тонкая рамка вместо синей */
 }
 
 .cert-link:hover, .download-link:hover {
-    background-color: #e6f0ff;
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+    background-color: #e9ecef; /* Очень легкий акцент при наведении */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .cert-link i, .download-link i {
@@ -298,7 +308,7 @@ header .button i {
 
 /* --- 7. Секция Контакты и Футер --- */
 #contact {
-    background-color: #f1f6fc;
+    background-color: #f8f9fa; /* Светлый фон body */
 }
 
 .contact-links {
@@ -310,10 +320,10 @@ header .button i {
 }
 
 .contact-links a {
-    color: #007bff;
+    color: #172c47; /* Цвет акцента */
     text-decoration: none;
     padding: 10px 15px;
-    border: 1px solid #007bff;
+    border: 1px solid #172c47;
     border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;
     display: flex;
@@ -322,7 +332,7 @@ header .button i {
 }
 
 .contact-links a:hover {
-    background-color: #007bff;
+    background-color: #172c47;
     color: white;
 }
 
@@ -331,7 +341,7 @@ header .button i {
 }
 
 footer {
-    background-color: #343a40;
+    background-color: #343a40; /* Темно-серый */
     color: #adb5bd;
     padding: 25px;
     font-size: 0.85em;
@@ -352,10 +362,6 @@ footer {
         padding: 10px;
     }
 
-    .nav-links {
-        margin-top: 10px;
-    }
-
     .nav-links a {
         margin: 5px 10px;
         display: inline-block; 
@@ -363,6 +369,7 @@ footer {
     
     .timeline::after {
         left: 31px; 
+        background-color: #34495e; /* Сохраняем темный цвет */
     }
 
     .timeline-item {
@@ -379,6 +386,7 @@ footer {
     .timeline-item::after {
         left: 24px; 
         right: auto;
+        background-color: #172c47;
     }
     
     .timeline-item:nth-child(odd)::after {
@@ -414,10 +422,10 @@ footer {
     }
     
     .avatar-container {
-        margin-top: -60px; /* Немного уменьшим подъем на мобильных */
+        margin-top: -60px; 
     }
     .avatar {
-        width: 120px; /* Чуть меньше аватарка на мобильных */
+        width: 120px; 
         height: 120px;
     }
 }
