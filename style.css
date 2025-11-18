@@ -82,18 +82,24 @@ header h1 {
 }
 
 .button {
-    display: inline-block;
+    display: inline-flex; /* Используем inline-flex для выравнивания иконки */
+    align-items: center;
     background: white;
     color: #007bff;
-    padding: 12px 30px;
+    padding: 15px 35px; /* Увеличен размер для акцента */
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
+    font-size: 1.1em;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .button:hover {
     background-color: #e2e6ea;
+}
+
+header .button i {
+    margin-right: 10px;
 }
 
 /* --- 4. Секция Обо мне и Навыки --- */
@@ -116,16 +122,6 @@ header h1 {
     border-radius: 20px;
     font-size: 0.9em;
     font-weight: 500;
-}
-
-.certs-list {
-    margin-top: 30px;
-    text-align: left;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    border-top: 1px solid #e9ecef;
-    padding-top: 20px;
 }
 
 /* --- 5. Секция Опыт работы (Таймлайн) --- */
@@ -222,10 +218,51 @@ header h1 {
     font-size: 0.95em;
 }
 
-
-/* --- 6. Секция Контакты и Футер --- */
-#contact {
+/* --- 6. Секция Квалификация (Сертификаты) --- */
+#certs {
     background-color: white;
+}
+
+#certs h3 {
+    margin-top: 40px;
+    margin-bottom: 15px;
+    color: #343a40;
+}
+
+.certs-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.cert-link, .download-link {
+    display: flex;
+    align-items: center;
+    background-color: #f1f6fc; /* Светлый фон для контраста */
+    color: #007bff;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border: 1px solid #cce5ff;
+}
+
+.cert-link:hover, .download-link:hover {
+    background-color: #e6f0ff;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
+}
+
+.cert-link i, .download-link i {
+    margin-right: 8px;
+    font-size: 1.1em;
+}
+
+/* --- 7. Секция Контакты и Футер --- */
+#contact {
+    background-color: #f1f6fc;
 }
 
 .contact-links {
@@ -239,15 +276,23 @@ header h1 {
 .contact-links a {
     color: #007bff;
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 10px 15px;
     border: 1px solid #007bff;
     border-radius: 4px;
     transition: background-color 0.3s, color 0.3s;
+    /* Стили для иконок в контактах */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .contact-links a:hover {
     background-color: #007bff;
     color: white;
+}
+
+.contact-links a i {
+    margin-right: 8px;
 }
 
 footer {
@@ -257,13 +302,14 @@ footer {
     font-size: 0.85em;
 }
 
+
 /* =====================================
-   7. МОБИЛЬНЫЙ КОНТЕНТ (МЕДИА-ЗАПРОСЫ)
+   8. МОБИЛЬНЫЙ КОНТЕНТ (МЕДИА-ЗАПРОСЫ)
    ===================================== */
 @media screen and (max-width: 768px) {
     /* Общие для мобильных */
     h1 {
-        font-size: 2.5em !important;
+        font-size: 2.5em; /* Убрали !important, т.к. этот запрос идет после общего */
     }
 
     .nav-container {
@@ -277,8 +323,8 @@ footer {
     }
 
     .nav-links a {
-        margin: 0 10px;
-        display: block; /* Ссылки в столбик */
+        margin: 5px 10px;
+        display: inline-block; /* Вернем inline, чтобы экономить место */
     }
     
     /* Таймлайн для мобильных (переход в одноколоночный вид) */
@@ -319,9 +365,18 @@ footer {
         margin-top: 15px; /* Увеличиваем отступ, чтобы не накладывался на дату */
     }
     
-    /* Сетки навыков */
-    .skills-grid {
+    /* Сетки навыков и сертификатов */
+    .skills-grid, .certs-grid {
         justify-content: flex-start; /* Выравнивание по левому краю */
+    }
+    
+    .certs-grid {
+        flex-direction: column;
+    }
+    
+    .cert-link, .download-link {
+        width: 90%;
+        margin: 0 auto;
     }
     
     /* Контакты */
